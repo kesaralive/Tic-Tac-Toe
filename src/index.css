@@ -1,35 +1,92 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-ol, ul {
+:root {
+  --primary: #f9d247;
+  --secondary: #460b38;
+  --surface: rgba(229, 234, 255, 0.5);
+  --mint: #e5eaff !important;
+  --beige: #f5f0f0 !important;
+  --black: #17242c !important;
+}
+
+.ttc-primary {
+  background: var(--primary) !important;
+}
+.ttc-secondary {
+  background: var(--secondary);
+}
+.ttc-surface {
+  background: var(--surface);
+}
+.ttc-mint {
+  background: var(--mint);
+}
+.ttc-beige {
+  background: var(--beige);
+}
+.ttc-black {
+  background: var(--black);
+}
+
+.ttc-txt-primary {
+  color: var(--primary) !important;
+}
+.ttc-txt-secondary {
+  color: var(--secondary);
+}
+.ttc-txt-surface {
+  color: var(--surface);
+}
+.ttc-txt-mint {
+  color: var(--mint);
+}
+.ttc-txt-beige {
+  color: var(--beige);
+}
+.ttc-txt-black {
+  color: var(--black);
+}
+
+ol,
+ul {
   padding-left: 30px;
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.board-row {
+  display: flex;
 }
 
 .status {
   margin-bottom: 10px;
 }
 
+.board {
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  padding: 10px;
+}
+
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: var(--secondary);
+  border: 1px solid rgb(255, 255, 255);
   float: left;
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 50px;
+  height: 100px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 100px;
+  cursor: pointer;
 }
 
 .square:focus {
@@ -47,4 +104,9 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+/* Tic Nav  */
+.tic-nav {
+  background: #460b38;
 }
