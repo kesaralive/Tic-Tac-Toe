@@ -1,5 +1,8 @@
 import React from "react";
 import Board, { calculateWinner } from "./Board";
+import { Container, Row, Button, Col, Stack, Modal } from "react-bootstrap";
+import GameInfo from "./GameInfo";
+import ModalMessage from "./ModalMessage";
 
 class Game extends React.Component {
   constructor(props) {
@@ -12,6 +15,7 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       xIsNext: true,
+      winner: false,
     };
   }
 
@@ -45,8 +49,18 @@ class Game extends React.Component {
     const moves = history.map((step, move) => {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li
+          key={move}
+          className="list-group-item"
+          style={{ backgroundColor: "#460b38" }}
+        >
+          <Button
+            variant="warning ttc-txt-secondary"
+            className="col-12"
+            onClick={() => this.jumpTo(move)}
+          >
+            {desc}
+          </Button>
         </li>
       );
     });
@@ -54,23 +68,44 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+      this.state.winner
+        ? console.log(this.state.winner)
+        : this.setState({ winner: true });
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      this.state.winner
+        ? this.setState({ winner: false })
+        : console.log(this.state.winner);
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+      <Container className="my-5">
+        {this.state.winner ? <ModalMessage winner={status} /> : null}
+
+        <Row>
+          <Col>
+            <GameInfo />
+          </Col>
+          <Col>
+            {" "}
+            <div className="game-board">
+              <Board
+                squares={current.squares}
+                onClick={(i) => this.handleClick(i)}
+              />
+            </div>
+          </Col>
+          <Col>
+            {" "}
+            <div className="game-info">
+              <div>{status}</div>
+              <Stack gap={2} className="list-group mx-auto">
+                {moves}
+              </Stack>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
