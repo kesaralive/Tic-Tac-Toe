@@ -49,7 +49,11 @@ class Game extends React.Component {
     const moves = history.map((step, move) => {
       const desc = move ? "Go to move #" + move : "Go to game start";
       return (
-        <li key={move} className="list-group-item">
+        <li
+          key={move}
+          className="list-group-item"
+          style={{ backgroundColor: "#460b38" }}
+        >
           <Button
             variant="warning ttc-txt-secondary"
             className="col-12"

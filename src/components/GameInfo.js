@@ -3,10 +3,11 @@ const GameInfo = () => {
   return (
     <div>
       <Card
-        bg="primary"
+        bg="transparent"
         text="white"
         style={{ width: "18rem" }}
         className="mb-2"
+        border="white"
       >
         <Card.Header>How to play</Card.Header>
         <Card.Body>
@@ -17,7 +18,13 @@ const GameInfo = () => {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card style={{ width: "18rem" }} className="mb-2">
+      <Card
+        bg="transparent"
+        text="white"
+        style={{ width: "18rem" }}
+        className="mb-2"
+        border="white"
+      >
         <Card.Header>Header</Card.Header>
         <Card.Body>
           <Card.Title> Card Title </Card.Title>
@@ -27,7 +34,13 @@ const GameInfo = () => {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card style={{ width: "18rem" }} className="mb-2">
+      <Card
+        bg="transparent"
+        text="white"
+        border="white"
+        style={{ width: "18rem" }}
+        className="mb-2"
+      >
         <Card.Header>How to win</Card.Header>
         <Card.Body>
           <Card.Title> Card Title </Card.Title>
