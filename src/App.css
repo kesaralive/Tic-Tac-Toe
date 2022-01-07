@@ -12,7 +12,24 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.bg-primary {
+  background: var(--primary) !important;
+}
+.bg-secondary {
+  background: var(--secondary);
+}
+.bg-surface {
+  background: var(--surface);
+}
+.bg-mint {
+  background: var(--mint);
+}
+.bg-beige {
+  background: var(--beige);
+}
+.bg-black {
+  background: var(--black);
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
